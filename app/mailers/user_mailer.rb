@@ -5,5 +5,6 @@ class UserMailer < ApplicationMailer
     @order = order
     @url  = 'http://example.com/login'
     mail(to: @order.email, subject: @order.id)
+    puts @order.email
   end
 end
