@@ -132,5 +132,35 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## Ratings
+
+Product.find_by(name: 'Red Bookshelf').ratings.create({
+  rating: 5,
+  user_id: 1,
+  product_id: 13,
+  description: "very niice!"
+})
+
+
+Product.find_by(name: 'Red Bookshelf').ratings.create({
+  rating: 3,
+  user_id: 1,
+  product_id: 13,
+  description: "Smelled a bit odd, to be honest"
+})
+
+Product.find_by(name: 'Red Bookshelf').ratings.create({
+  rating: 3,
+  user_id: 1,
+  product_id: 14,
+  description: "NOT gluten free."
+})
+
+Product.find_by(name: 'Optimal Sleeping Bed').ratings.create({
+  rating: 1,
+  user_id: 1,
+  product_id: 15,
+  description: "Poor taste.."
+})
 
 puts "DONE!"

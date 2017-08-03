@@ -15,7 +15,19 @@
     <%= link_to product, class: 'btn btn-default pull-right' do %>
       Details &raquo;
     <% end %>
+    <% sum = 0 %>
+    <% if product.ratings.count > 0 %>
+      <% product.ratings.each do |rating| %>
+        <% sum += rating.rating %>
+      <% end %>
+      <% avgRating = sum/product.ratings.count %>
+      <p><%= avgRating %>/5</p>
+    <% else %>
+      <p>No Ratings Yet!</p>
+    <% end %>
+
   </footer>
+
 
   <aside class="price">
     <%= humanized_money_with_symbol product.price %>
