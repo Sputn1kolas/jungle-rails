@@ -7,6 +7,8 @@ class ProductsController < ApplicationController
   def show
     @rating = Rating.new
 
+    @current_user = User.find(session[:user_id]) if session[:user_id]
+
     @product = Product.find params[:id]
     @ratings = @product.ratings
     sum = 0
