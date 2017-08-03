@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to the Jungle!</h1>
+    <p>
+      Thank you for your recent purchase at the jungle,
+      Your total is:  <%= @order.total_cents/100 %>
+      <br>
+    </p>
+    <p>
+    <% @order.line_items.each do | li | %>
+       <div class="order_item">
+        <p><%=  li.product.name   %><p>
+        <p> Quantity: <%= li.quantity %><p>
+        <p> Total Price: <%=li.total_price_cents %><p>
+      </div
+    <% end %>
+    </p>
+    <p>Thanks and have a great day!</p>
+  </body>
+</html>
