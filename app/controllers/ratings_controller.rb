@@ -1,4 +1,5 @@
 class RatingsController < ApplicationController
+  before_filter :current_user
   def create
     puts params.inspect
     rating = Rating.new(product_id: params[:product_id], rating: params[:rating][:rating], description: params[:rating][:description], user_id: current_user.id)
