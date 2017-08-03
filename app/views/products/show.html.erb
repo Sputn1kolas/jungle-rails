@@ -29,7 +29,7 @@
         </dl>
       </div>
       <div class="row">
-      <div class="reviews col-sm-12">
+      <div class="col-sm-10">
         <dl class="dl-horizontal">
         <% if @current_user %>
           <%= form_for [@product, @rating] do |form| %>
@@ -68,14 +68,15 @@
           <% if @ratings.count > 0 %>
             <h3> Reviews </h3>
             <% @ratings.reverse_each do |rating| %>
-              <dd><h4><strong><%= rating.user.name %></strong> thinks that thought that this product was...</h4></dd>
-              <dt><%= rating.rating %>/5</dt>
-              <dd><%= rating.description %></dd>
-              <dd><%= rating.created_at.strftime('%F') %></dd>
-              <% if rating.user == @current_user %>
-                  <dd><a href="/products/<%= @product.id %> /ratings/<%= rating.id %>" data-method='delete'> Delete Comment</a></dd>
-
-              <% end %>
+              <div class ="review">
+                <dd><h4><strong><%= rating.user.name %></strong> thought that this product was...</h4></dd>
+                <dt><%= rating.rating %>/5</dt>
+                <dd><%= rating.description %></dd>
+                <dd><%= rating.created_at.strftime('%F') %></dd>
+                <% if rating.user == @current_user %>
+                    <dd><a href="/products/<%= @product.id %> /ratings/<%= rating.id %>" data-method='delete'> Delete Comment</a></dd>
+                <% end %>
+            <div>
               <br>
             <% end %>
           <% end %>
