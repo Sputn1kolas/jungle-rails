@@ -1,10 +1,8 @@
 class UserMailer < ApplicationMailer
-  default from: 'no-reply@jungle.com'
-
   def reciept(order)
     @order = order
-    @url  = 'http://example.com/login'
+
+    puts "sending order to #{@order.email}"
     mail(to: @order.email, subject: @order.id)
-    puts @order.email
   end
 end
