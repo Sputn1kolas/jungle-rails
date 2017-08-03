@@ -67,10 +67,14 @@
         <dl class="dl-horizontal">
           <% if @ratings.count > 0 %>
             <h3> Reviews </h3>
-            <% @ratings.each do |rating| %>
+            <% @ratings.reverse_each do |rating| %>
               <dt><%= rating.rating %>/5</dt>
               <dd><%= rating.description %></dd>
               <dd><%= rating.created_at %></dd>
+              <% if rating.user == @current_user %>
+                  <dd><a href="/products/<%= @product.id %> /ratings/<%= rating.id %>" data-method='delete'> Delete Comment</a></dd>
+
+              <% end %>
               <br>
             <% end %>
           <% end %>

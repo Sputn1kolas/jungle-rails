@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   resources :products do
-    resources :ratings, only: [:create]
+    resources :ratings, only: [:create, :destroy]
   end
 
 
