@@ -17,6 +17,12 @@ Rails.application.routes.draw do
     resources :products, :categories, except: [:edit, :update, :show]
   end
 
+  resources :products do
+    resources :ratings, only: [:create]
+  end
+
+
+
 
 
   # these routes are for showing users a login form, logging them in, and logging them out.

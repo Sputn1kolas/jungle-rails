@@ -5,6 +5,8 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @rating = Rating.new
+
     @product = Product.find params[:id]
     @ratings = @product.ratings
     sum = 0
