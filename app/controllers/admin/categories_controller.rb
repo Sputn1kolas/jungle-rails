@@ -1,4 +1,5 @@
 class Admin::CategoriesController < ApplicationController
+  :authenticate
 
   def index
     @categories = Category.order(id: :desc).all
