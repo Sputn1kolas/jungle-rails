@@ -87,6 +87,11 @@ main section.products-show {
   }
 }
 
+.welcome {
+  margin-top: 15px;
+  color: #286090;
+}
+
 .new_rating {
     padding-left: 15px;
     border-color: #e7e7e7;
@@ -95,9 +100,16 @@ main section.products-show {
 .reviews {
   padding-left: 0px;
   dt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 50px;
+    background-color: #286090;
+    height: 50px;
+    border-radius: 10px;
+    color: white;
   }
   dd {
-    margin-left: 100px;
+    margin-left: 65px;
   }
 }

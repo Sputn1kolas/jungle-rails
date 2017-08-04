@@ -30,7 +30,8 @@
 
 
       <% if current_user %>
-        <li>Welcome <%= current_user.name %></li><li><%= link_to "Logout", '/logout' %></li>
+        <li class="welcome"> Welcome <strong><%= current_user.name %></strong></li>
+        <li><%= link_to "Logout", '/logout' %></li>
       <% else %>
         <li><%= link_to 'Login', '/login' %> </li><li><%= link_to 'Signup', '/signup' %></li>
       <% end %>
