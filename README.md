@@ -28,6 +28,6 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Stripe
 
 ## Screen Shots
-![Alt text](http://full/path/to/img.jpg "Main Product View")
-![Alt text](http://full/path/to/img.jpg "Admin Category View")
-![Alt text](http://full/path/to/img.jpg "Checkout View")
+![Alt text](https://github.com/Sputn1kolas/jungle-rails/blob/master/docs/Admin.png "Admin Category View")
+![Alt text](https://github.com/Sputn1kolas/jungle-rails/blob/master/docs/Admin.png "Main Product View" )
+![Alt text](https://github.com/Sputn1kolas/jungle-rails/blob/master/docs/My%20Cart.png "Checkout View")
