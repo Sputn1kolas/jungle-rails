@@ -29,5 +29,5 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 
 ## Screen Shots
 ![Alt text](https://github.com/Sputn1kolas/jungle-rails/blob/master/docs/Admin.png "Admin Category View")
-![Alt text](https://github.com/Sputn1kolas/jungle-rails/blob/master/docs/Admin.png "Main Product View" )
+![Alt text](https://github.com/Sputn1kolas/jungle-rails/blob/master/docs/Products.png "Main Product View" )
 ![Alt text](https://github.com/Sputn1kolas/jungle-rails/blob/master/docs/My%20Cart.png "Checkout View")
