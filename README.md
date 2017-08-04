@@ -26,3 +26,8 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
 * PostgreSQL 9.x
 * Stripe
+
+## Screen Shots
+![Alt text](http://full/path/to/img.jpg "Main Product View")
+![Alt text](http://full/path/to/img.jpg "Admin Category View")
+![Alt text](http://full/path/to/img.jpg "Checkout View")
