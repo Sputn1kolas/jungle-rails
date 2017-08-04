@@ -12,7 +12,7 @@
     <% if product.quantity != 0 %>
       <%= link_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary', method: :put do %>
         <%= fa_icon "shopping-cart", text: 'Add' %>
-    <% end %>
+        <% end %>
     <% end %>
     <%= link_to product, class: 'btn btn-default pull-right' do %>
       Details &raquo;
@@ -23,7 +23,7 @@
         <% sum += rating.rating %>
       <% end %>
       <% avgRating = sum/product.ratings.count %>
-      <p><%= avgRating %>/5</p>
+      <p>Rated: <%= avgRating %>/5</p>
     <% else %>
       <p>No Ratings Yet!</p>
     <% end %>
