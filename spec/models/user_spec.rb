@@ -4,7 +4,8 @@ RSpec.describe User, type: :model do
   it 'should save with correct info' do
       @user = User.new(
         name: "Joe Clark",
-        password_digest: "password",
+        password: "password",
+        password_confirmation: "password",
         email: "joey@gov.ca"
         )
       expect(@user.valid?).to be(true)
@@ -15,7 +16,7 @@ RSpec.describe User, type: :model do
   it 'should not save without an email' do
       @user = User.new(
         name: "Joe Clark",
-        password_digest: "password"
+        password: "password"
         )
       expect(@user.valid?).to be(false)
       expect(@user.errors.messages).to eq({:email=>["can't be blank"]})
@@ -25,7 +26,7 @@ RSpec.describe User, type: :model do
   it 'should not save without a name' do
     @user = User.new(
       email: "Joe.Clark@gov.ca",
-      password_digest: "password"
+      password: "password"
       )
     expect(@user.valid?).to be(false)
     expect(@user.errors.messages).to eq({:name=>["can't be blank"]})
@@ -36,13 +37,13 @@ RSpec.describe User, type: :model do
     @user1 = User.new(
       name: "Joe Clark",
       email: "Joe.Clark@gov.ca",
-      password_digest: "password"
+      password: "password"
       )
     @user1.save
     @user2 = User.create(
       name: "Joe Clark",
       email: "Joe.ClarK@GOV.ca",
-      password_digest: "password"
+      password: "password"
       )
     expect(@user2.valid?).to be(false)
     expect(@user2.errors.messages).to eq({:email=>["has already been taken"]})
@@ -53,10 +54,10 @@ RSpec.describe User, type: :model do
     @user = User.new(
       name: "Joe Clark",
       email: "Joe.Clark@gov.ca",
-      password_digest: "p"
+      password: "p"
       )
     expect(@user.valid?).to be(false)
-    expect(@user.errors.messages).to eq({:password_digest=>["is too short (minimum is 5 characters)"]})
+    expect(@user.errors.messages).to eq({:password=>["is too short (minimum is 5 characters)"]})
     puts @user.errors.messages
   end
 
@@ -64,10 +65,22 @@ RSpec.describe User, type: :model do
     @user = User.new(
       name: "Joe Clark",
       email: "Joe.Clark@gov.ca",
-      password_digest: "passwordpasswordpasswordpasswordpasswordpasswordpasswordpasswordpassword"
+      password: "passwordpasswordpasswordpasswordpasswordpasswordpasswordpasswordpassword"
       )
     expect(@user.valid?).to be(false)
-    expect(@user.errors.messages).to eq({:password_digest=>["is too long (maximum is 20 characters)"]})
+    expect(@user.errors.messages).to eq({:password=>["is too long (maximum is 20 characters)"]})
+    puts @user.errors.messages
+  end
+
+  it 'should not save if password and password confirmation do not match' do
+    @user = User.new(
+      name: "Joe Clark",
+      email: "Joe.Clark@gov.ca",
+      password: "password",
+      password_confirmation: "not_the_same"
+      )
+    expect(@user.valid?).to be(false)
+    expect(@user.errors.messages).to eq({:password_confirmation=>["doesn't match Password"]})
     puts @user.errors.messages
   end
 

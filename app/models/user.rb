@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
-  validates :password_digest, length: { in: 5..20 },  presence: true
+  validates :password, length: { in: 5..20 }
 
   validates :email, uniqueness: { case_sensitive: false }, presence: true
 
@@ -8,16 +8,14 @@ class User < ActiveRecord::Base
 
   has_many :ratings
 
-  def authenticate_with_credentials(params[:email], params[:password])
-    @user = User.find_by('email': params[:email])
-    if @user && @user.authenticate(params[:password])
+  def self.authenticate_with_credentials(email, password)
+    @user = User.find_by('email': email)
+    if @user && @user.authenticate(password)
       puts "user authenticated.."
-      return True
+      return @user
     else
       puts " not logging in..."
-      return False
+      return nil
     end
-
   end
-
 end
