@@ -22,4 +22,6 @@ class SessionsController < ApplicationController
     redirect_to '/login', error: "Wrong Password or Username"
   end
 
+
+
 end
