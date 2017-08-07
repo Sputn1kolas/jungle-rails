@@ -9,8 +9,9 @@ class User < ActiveRecord::Base
   has_many :ratings
 
   def self.authenticate_with_credentials(email, password)
-    @user = User.find_by('email': email)
-    if @user && @user.authenticate(password)
+    @user = User.find_by('email': email.downcase.strip)
+    if @user
+      @user.authenticate(password)
       puts "user authenticated.."
       return @user
     else

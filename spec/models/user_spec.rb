@@ -84,4 +84,24 @@ RSpec.describe User, type: :model do
     puts @user.errors.messages
   end
 
+  it 'should authenticate if there is different cases for email' do
+    @user = User.create(
+      name: "joe clark",
+      email: "joe.clark@gov.ca",
+      password: "password",
+      password_confirmation: "password"
+      )
+     expect(User.authenticate_with_credentials('JOE.CLARK@GOV.CA', 'password')).to eq(@user)
+  end
+
+  it 'should authenticate if there is white space before and after email' do
+  @user = User.create(
+      name: "joe clark",
+      email: "joe.clark@gov.ca",
+      password: "password",
+      password_confirmation: "password"
+      )
+     expect(User.authenticate_with_credentials('joe.clark@gov.ca ', 'password')).to eq(@user)
+  end
+
 end
